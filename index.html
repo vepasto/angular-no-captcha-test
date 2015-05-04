@@ -29,16 +29,11 @@ angular.module('ui.bootstrap.demo')
       animation: $scope.animationsEnabled,
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
+      size: size
     });
 
     modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
+      
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
@@ -89,7 +84,6 @@ angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($s
   
       <button class="btn btn-default" ng-click="open()">Open me!</button>
       <button class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
-      <div ng-show="selected">Selection from a modal: {{ selected }}</div>
   </div>
   </body>
 </html>
