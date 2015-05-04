@@ -15,11 +15,6 @@ angular.module('ui.bootstrap.demo')
   }]);
 angular.module('ui.bootstrap.demo')
 .controller('ModalDemoCtrl', function ($scope, $modal, $log) {
-  $scope.$watch('gRecaptchaResponse', function(){
-    console.log($scope.gRecaptchaResponse);
-  });
-
-
   $scope.animationsEnabled = true;
 
   $scope.open = function (size) {
@@ -48,7 +43,9 @@ angular.module('ui.bootstrap.demo')
 // It is not the same as the $modal service used above.
 
 angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-
+  $scope.$watch('gRecaptchaResponse', function(){
+    console.log($scope.gRecaptchaResponse);
+  });
   $scope.ok = function () {
    $modalInstance.close();
   };
@@ -65,7 +62,7 @@ angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($s
           <div class="modal-header">
               <h3 class="modal-title">I'm a modal!</h3>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" ng-controller="CaptchaCtrl">
             <no-captcha
               g-recaptcha-response="gRecaptchaResponse">
             </no-captcha>
