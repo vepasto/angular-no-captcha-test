@@ -100,7 +100,7 @@ angular
             // remove pls-containers
             var plsContainers = $document[0].getElementsByClassName('pls-container');
             for(var i = 0; i < plsContainers.length; i++){
-              var parent = plsContainers.parent;
+              var parent = plsContainers[i].parentNode;
               while (parent.firstChild) {
                 parent.removeChild(parent.firstChild);
               }
