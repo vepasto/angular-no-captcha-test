@@ -97,7 +97,7 @@ angular
 
           scope.$on('$destroy', function (){
             grecaptcha.reset(widgetId);
-            console.log(element[0]);
+            console.log(element);
             $document[0].body.appendChild(element[0].children()[0]);
           });
         }
