@@ -45,7 +45,7 @@ angular
     '$document',
     'noCAPTCHA',
     'googleGrecaptcha',
-    function (noCaptcha, googleGrecaptcha, $document){
+    function ($document, noCaptcha, googleGrecaptcha){
       return {
         restrict: 'EA',
         scope: {
