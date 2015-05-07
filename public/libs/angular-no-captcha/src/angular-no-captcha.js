@@ -42,9 +42,10 @@ angular
     }];
   })
   .directive('noCaptcha', [
+    '$document',
     'noCAPTCHA',
     'googleGrecaptcha',
-    function (noCaptcha, googleGrecaptcha){
+    function (noCaptcha, googleGrecaptcha, $document){
       return {
         restrict: 'EA',
         scope: {
@@ -96,6 +97,7 @@ angular
 
           scope.$on('$destroy', function (){
             grecaptcha.reset(widgetId);
+            $document.body.appendChild(element[0].children()[0]);
           });
         }
       };
