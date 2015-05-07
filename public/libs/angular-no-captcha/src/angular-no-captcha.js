@@ -97,8 +97,14 @@ angular
 
           scope.$on('$destroy', function (){
             grecaptcha.reset(widgetId);
-            console.log(element);
-            $document[0].body.appendChild(element.children()[0]);
+            // remove pls-containers
+            var plsContainers = $document[0].getElementsByClassName('pls-container');
+            for(var i = 0; i< plsContainers.length; i++){
+              var parent plsContainers.parent();
+              while (parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+              }
+            }
           });
         }
       };
