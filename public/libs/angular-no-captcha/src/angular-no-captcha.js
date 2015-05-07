@@ -99,8 +99,8 @@ angular
             grecaptcha.reset(widgetId);
             // remove pls-containers
             var plsContainers = $document[0].getElementsByClassName('pls-container');
-            for(var i = 0; i< plsContainers.length; i++){
-              var parent plsContainers.parent();
+            for(var i = 0; i < plsContainers.length; i++){
+              var parent = plsContainers.parent();
               while (parent.firstChild) {
                 parent.removeChild(parent.firstChild);
               }
